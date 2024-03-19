@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAGIC MUFFIN</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<style>
+    body {
+        background-color: #ee5ff4; /* Soft pink background color */
+        animation: flash 1s infinite; /* Flashing animation */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    @keyframes flash {
+        0% { background-color: #ee5ff4; }
+        50% { background-color: #f9d43d; } /* White color for flash effect */
+        100% { background-color: #ee5ff4; }
+    }
+
+    .centered-image img {
+        max-width: 100%;
+        max-height: 100%;
+        text-align: center;
+    }
+
+    .dancing-image {
+    position: relative;
+    animation: dance 1s infinite alternate;
+    }
+
+    @keyframes dance {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .rules-image {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        max-width: 15%;
+    }
+
+    .paper {
+        width: 400px;
+        height: 400px;
+        margin: 20px auto;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px #888;
+    }
+
+    .paper::before {
+        content: '';
+        width: 2px;
+        height: 100%;
+        background-color: rgba(255,0,0,0.6);
+    }
+    .paper {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .paper::before {
+        position: absolute;
+        top: 0;
+        left: 40px;
+    }
+
+    .paper {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .pattern {
+        height: 100%;
+        background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
+    }
+
+    .content {
+        padding-top: 6px;
+        padding-left: 56px;
+        padding-right: 16px;
+        line-height: 25px;
+        font-family: 'Dancing Script', cursive;
+        font-size: 19px;
+        letter-spacing: 1px;
+        word-spacing: 5px;
+    }
+
+    .hidden-text {
+        display: none;
+    }
+    
+    .twitter-link {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: white;
+        font-weight: bold;
+        font-family: cursive;
+        text-decoration: none;
+    }
+
+    .buy-button {
+        padding: .5rem;
+        border-radius: 50px;
+        --tw-bg-opacity: 1;
+        background-color: rgba(74, 222, 128, var(--tw-bg-opacity));
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        width: 400px;
+        height: 100px;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 18px;
+        font-weight: bold;
+        font-family: cursive;
+    }
+
+</style>
+</head>
+<body>
+    <a class="twitter-link" href="https://twitter.com/wolfworldrun">[ Twitter ]</a>
+
+    <div class="centered-image">
+        <img src="/img/Magic_muffin.png" alt="Magic Muffin" class="dancing-image">
+
+        <button class="buy-button" onclick="window.location.href = 'https://www.pump.fun/board'"">BUY $MUFFIN! 🚀🚀🚀</button>
+    </div>
+
+    <div>
+        <img src="/img/Da_Rules.png" alt="Rules" class="rules-image">
+        <div class="hidden-text">
+            <div class="paper">
+                <div class="pattern">
+                    <div class="content">
+                        <p>1. Buy coin</p>
+                        <p>2. Follow  dev @wolfworldrun</p>
+                        <p>This Magic Muffin is a special wish-granting muffin that can grant wishes that are free of Da Rules with each consumed bite. However, the muffin is not solely tied to who receives it, any sentient creature that consumes a piece of the muffin can make a rule-free wish, making it an enormous risk. The Muffin also tastes very terrible </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.rules-image').addEventListener('click', function() {
+            var hiddenText = document.querySelector('.hidden-text');
+            hiddenText.style.display = hiddenText.style.display === 'none' ? 'inline-block' : 'none';
+        });
+    </script>
+</body>
+</html>

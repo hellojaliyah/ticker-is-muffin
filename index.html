@@ -53,6 +53,13 @@
 
     }
 
+    /* Media query for screens smaller than 768px (typical mobile devices) */
+    @media only screen and (max-width: 768px) {
+        .centered-image img {
+            max-width: 80%; /* Adjust image size for smaller screens */
+        }
+    }
+    
     .dancing-image {
     position: relative;
     animation: dance 1s infinite alternate;

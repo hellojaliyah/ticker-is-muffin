@@ -15,6 +15,27 @@
         height: 100vh;
         margin: 0;
     }
+    
+        /* Star styles */
+    .star {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #f5d241;
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        opacity: 0.8;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(100vh);
+            opacity: 0;
+        }
+    }
+
+    .star {
+        animation: fall linear forwards;
+    }
 
     @keyframes flash {
         0% { background-color: #ee5ff4; }
@@ -23,9 +44,13 @@
     }
 
     .centered-image img {
-        max-width: 100%;
-        max-height: 100%;
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 35%;
+        margin: auto; 
+
     }
 
     .dancing-image {
@@ -137,9 +162,9 @@
     <a class="twitter-link" href="https://twitter.com/wolfworldrun">[ Twitter ]</a>
 
     <div class="centered-image">
-        <img src="/img/Magic_muffin.png" alt="Magic Muffin" class="dancing-image">
+        <img src="/img/muffin_mommy.png" alt="Magic Muffin Mommy" class="dancing-image">
 
-        <button class="buy-button" onclick="window.location.href = 'https://www.pump.fun/board'"">BUY $MUFFIN! 🚀🚀🚀</button>
+        <button class="buy-button">BUY $MUFFIN! 🚀🚀🚀</button>
     </div>
 
     <div>
@@ -150,7 +175,7 @@
                     <div class="content">
                         <p>1. Buy coin</p>
                         <p>2. Follow  dev @wolfworldrun</p>
-                        <p>This Magic Muffin is a special wish-granting muffin that can grant wishes that are free of Da Rules with each consumed bite. However, the muffin is not solely tied to who receives it, any sentient creature that consumes a piece of the muffin can make a rule-free wish, making it an enormous risk. The Muffin also tastes very terrible </p>
+                        <p>This Magic Muffin is a special wish-granting muffin that can grant wishes that are free of Da Rules with each consumed bite. However, the muffin is not solely tied to who receives it, any sentient creature that consumes a piece of the muffin can make a rule-free wish, making it an enormous risk. The Muffin also tastes very verrrry <3 </p>
                     </div>
                 </div>
             </div>
@@ -158,10 +183,32 @@
     </div>
 
     <script>
-        document.querySelector('.rules-image').addEventListener('click', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             var hiddenText = document.querySelector('.hidden-text');
-            hiddenText.style.display = hiddenText.style.display === 'none' ? 'inline-block' : 'none';
+            hiddenText.style.display = 'none';
+            
+            document.querySelector('.rules-image').addEventListener('click', function() {
+                hiddenText.style.display = hiddenText.style.display === 'none' ? 'inline-block' : 'none';
+            });
         });
+
+        // Star animation logic
+        function createStar() {
+            const star = document.createElement('div');
+            star.className = 'star';
+            document.body.appendChild(star);
+
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDuration = `${Math.random() * 3 + 2}s`; // Random duration between 2 to 5 seconds
+
+            // Remove star after it falls down
+            star.addEventListener('animationend', () => {
+                star.remove();
+            });
+        }
+
+        // Create stars at intervals
+        setInterval(createStar, 300);
     </script>
 </body>
 </html>
